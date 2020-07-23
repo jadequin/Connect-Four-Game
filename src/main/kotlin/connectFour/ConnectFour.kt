@@ -82,9 +82,9 @@ class ConnectFour(val p1: Long = 0, val p2: Long = 0, val height: List<Int> = li
 
 
     override fun toString(): String {
-        var cnt = 0
-        return listOf(5,12,19,26,33,40,47,4,11,18,25,32,39,46,3,10,17,24,31,38,45,2,9,16,23,30,37,44,1,8,15,22,29,36,43,0,7,14,21,28,35,42).joinToString(separator = "") {
-            (if(cnt++ % 7 == 0 && cnt != 0) "\n" else "") + (if(((p1 shr it) and 1L) == 1L) "X" else if(((p2 shr it) and 1L) == 1L) "O" else ".")
+        val positions = listOf(5,12,19,26,33,40,47,4,11,18,25,32,39,46,3,10,17,24,31,38,45,2,9,16,23,30,37,44,1,8,15,22,29,36,43,0,7,14,21,28,35,42)
+        return positions.indices.joinToString(separator = "") {
+            (if(it % 7 == 0 && it != 0) "\n" else "") + (if(((p1 shr positions[it]) and 1L) == 1L) "X" else if(((p2 shr positions[it]) and 1L) == 1L) "O" else ".")
         }
     }
 }
